@@ -37,9 +37,11 @@ function App() {
     }
   return (
     <div className="wrapper">
-      <Title />
-      <Form setCity={setCity} getWeather={getWeather}/>
-      <Results results={results}/>
+      <div className="container">
+          <Title />
+          <Form getWeather={getWeather} setCity={setCity} />
+          <Results results={results} />      
+      </div>
     </div>
   );
 }
