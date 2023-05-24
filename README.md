@@ -159,7 +159,7 @@ const Results = ({results}: ResultsPropsType) => {
 const {results} = props;
 const {country, cityName, temperature, conditionText, icon} = results;
 ```
-## `{results}` を使わない理由
+### `{results}` を使わない理由
 
 ここで私が疑問に思ったのは、なぜ第二行で `const **{country, cityName, temperature, conditionText, icon}** = **{results}**;` と書かないのか、ということでした。
 
