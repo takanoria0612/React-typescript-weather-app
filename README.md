@@ -110,7 +110,7 @@ const Results = (props:ResultsPropsType) => {
 
 ## さらに分割代入
 
-先程の分割代入のステップをさらに効率化する方法を見ていきましょう。元のコードは以下の通りです:
+先程の分割代入のステップをさらに効率化する方法を見ていきます。元のコードは以下の通りです:
 
 ```javascript
 const Results = (props: ResultsPropsType) => {
