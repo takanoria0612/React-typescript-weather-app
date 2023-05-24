@@ -25,3 +25,75 @@
 ## 結びの言葉
 
 このアプリケーションは、私の技術力の粋と独自のビジョンを示すものであり、私の開発能力と情熱を評価するための基準となることを期待しています。これは、私が提供できる価値の一部であり、あなたのチームに対する私のコミットメントの証です。御社の期待に応え、さらにそれを超えることができるよう、全力を尽くすことを約束します。
+
+# 以下、コードについてさらに詳しく
+
+## JavaScriptの分割代入
+
+Reactコンポーネントでは、JavaScriptの特性である**分割代入**を活用しました。分割代入を使うと、オブジェクトや配列から値を取り出して新たな変数に代入することができます。
+
+以下にこの特性を用いたコードの一部を示します:
+
+```javascript
+const {country, cityName, temperature, conditionText, icon} = props.results;
+
+この行では、props.resultsオブジェクトからcountry、cityName、temperature、conditionText、iconというプロパティの値を取り出し、それぞれ同名の新たな変数に代入しています。
+
+この結果、それぞれの値に対してprops.results.をつけてアクセスする代わりに、直接変数名を使ってアクセスできるようになります。これにより、コードがシンプルで読みやすくなります。
+
+分割代入を使用する前と使用した後のコードを以下に示し、その有用性を確認しましょう:
+
+**分割代入を使用する前**:
+
+```javascript
+ const Results = (props:ResultsPropsType) => {
+    return (
+        <div>
+            {props.results.country && 
+                <div className="results-country">{props.results.country}</div>
+            }
+            {props.results.cityName && 
+                <div className="results-city">{props.results.cityName}</div>
+            }
+            {props.results.temperature && 
+                <div className="results-temp">{props.results.temperature} <span>°C</span></div>
+            }
+            {props.results.conditionText && 
+                <div className="results-condition">
+                    <img src={props.results.icon} alt="icon"/>
+                    <span>{props.results.conditionText}</span>
+                </div>
+            }
+        </div>
+    );
+};
+```
+
+**分割代入を使用する前**:
+
+```javascript
+const Results = (props:ResultsPropsType) => {
+    const {country, cityName, temperature, conditionText, icon} = props.results;
+
+    return (
+        <div>
+            {country && 
+                <div className="results-country">{country}</div>
+            }
+            {cityName && 
+                <div className="results-city">{cityName}</div>
+            }
+            {temperature && 
+                <div className="results-temp">{temperature} <span>°C</span></div>
+            }
+            {conditionText && 
+                <div className="results-condition">
+                    <img src={icon} alt="icon"/>
+                    <span>{conditionText}</span>
+                </div>
+            }
+        </div>
+    );
+};
+```
+分割代入を導入したことで、それぞれのプロパティにアクセスするためのprops.results.の記述が不要になり、コードがよりシンプルで読みやすくなりました。

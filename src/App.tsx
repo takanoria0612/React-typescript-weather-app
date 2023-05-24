@@ -16,7 +16,7 @@ function App() {
   const [city, setCity] = useState<string>("");
   const [results, setResults] = useState<ResultsStateType>({
     country: "",
-    cityName: "",
+    cityName:"",
     temperature: "",
     conditionText: "",
     icon: ""
@@ -34,6 +34,7 @@ function App() {
                 icon: data.current.condition.icon
               })
             })
+            .catch(err => alert("エラーが発生しました。ページをリロードして、もう一度トライしてください。"))
     }
   return (
     <div className="wrapper">
