@@ -161,7 +161,11 @@ const {country, cityName, temperature, conditionText, icon} = results;
 ```
 ### `{results}` を使わない理由
 
-さらにここで私が疑問に思ったのは、なぜ第二行で `const **{country, cityName, temperature, conditionText, icon}** = **{results}**;` と書かないのか、ということでした。
+さらにここで私が疑問に思ったのは、なぜ第二行で 
+```javascript
+const {country, cityName, temperature, conditionText, icon} = {results};
+``` 
+と書かないのか、ということでした。
 
 この疑問を解決するために、JavaScriptのオブジェクトと分割代入の特性を詳しく調べました。結果として以下の理解に至りました：
 
