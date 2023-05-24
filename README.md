@@ -53,7 +53,7 @@ let icon = props.results.icon;
 
 分割代入を使用する前と使用した後のコードを以下に示し、その有用性を確認しましょう:
 
-### 分割代入する前
+#### 分割代入する前
 
 ```javascript
  const Results = (props:ResultsPropsType) => {
@@ -79,7 +79,7 @@ let icon = props.results.icon;
 };
 ```
 
-### 分割代入した後:
+#### 分割代入した後:
 
 ```javascript
 const Results = (props:ResultsPropsType) => {
@@ -108,7 +108,7 @@ const Results = (props:ResultsPropsType) => {
 ```
 分割代入を導入したことで、それぞれのプロパティにアクセスするための**props.results.** の記述が不要になり、コードがよりシンプルで読みやすくなりました。
 
-## さらに分割代入
+### さらに分割代入
 
 先程の分割代入のステップをさらに効率化する方法を見ていきます。元のコードは以下の通りです:
 
