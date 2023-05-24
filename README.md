@@ -30,7 +30,7 @@
 
 ## JavaScriptの分割代入
 
-Reactコンポーネントでは、JavaScriptの特性である**分割代入**を活用しました。分割代入を使うと、オブジェクトや配列から値を取り出して新たな変数に代入することができます。
+Reactコンポーネント **Form.tsx** では、JavaScriptの特性である**分割代入**を活用しました。分割代入を使うと、オブジェクトや配列から値を取り出して新たな変数に代入することができます。
 
 以下にこの特性を用いたコードの一部を示します:
 
@@ -107,3 +107,26 @@ const Results = (props:ResultsPropsType) => {
 };
 ```
 分割代入を導入したことで、それぞれのプロパティにアクセスするための**props.results.** の記述が不要になり、コードがよりシンプルで読みやすくなりました。
+
+## さらに分割代入
+
+先程の分割代入のステップをさらに効率化する方法を見ていきましょう。元のコードは以下の通りです:
+
+```javascript
+const Results = (props: ResultsPropsType) => {
+    const {results} = props;
+    const {country, cityName, temperature, conditionText, icon} = results;
+    // ...
+};
+このコードでは、まずpropsからresultsを取り出し、その後でresultsから各プロパティを取り出しています。
+
+しかし、JavaScriptの分割代入を使うと、この2ステップの操作を1行で行うことができます。以下にそのコードを示します:
+```javascript
+const Results = ({results}: ResultsPropsType) => {
+    const {country, cityName, temperature, conditionText, icon} = results;
+    // ...
+};
+```
+ここでは、**props** から **results** を取り出す操作と、**resultsから各プロパティを取り出す操作が1行にまとめられています。このように、分割代入を使うとコードを短縮し、読みやすくすることができます。
+
+この方法は特にReactの関数コンポーネントでよく使われます。**props** オブジェクトから直接必要なプロパティを取り出すことで、コードがより簡潔になり、読みやすさが向上します。
