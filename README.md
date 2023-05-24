@@ -133,3 +133,22 @@ const Results = ({results}: ResultsPropsType) => {
 ここでは、**props** から **results** を取り出す操作と、**resultsから各プロパティを取り出す操作が1行にまとめられています。このように、分割代入を使うとコードを短縮し、読みやすくすることができます。
 
 この方法は特にReactの関数コンポーネントでよく使われます。**props** オブジェクトから直接必要なプロパティを取り出すことで、コードがより簡潔になり、読みやすさが向上します。
+
+### 最初に引っかかったポイント
+
+初めてReactの関数コンポーネントと分割代入に触れた時、次のような表記について混乱を覚えました：
+
+```javascript
+const Results = ({results}: ResultsPropsType) => {
+    // ...
+};
+```
+このコードでは、引数として`ResultsPropsType`型のオブジェクトが渡され、そのオブジェクトから`results`というプロパティを取り出しています。しかし、ここで私が混乱したのは、なぜ`const Results = (results: ResultsPropsType)`ではなく、`const Results = ({results}: ResultsPropsType)`と書くのか、という点でした。
+
+私の理解を深めるために、この違いを調べてみました。そして、その結果、次のようなことがわかりました：
+
+- `const Results = ({results}: ResultsPropsType)`という表記は、引数として渡された`ResultsPropsType`型のオブジェクトから`results`というプロパティを取り出すという意味になります。
+- 一方、`const Results = (results: ResultsPropsType)`と書くと、`results`が`ResultsPropsType`型全体であるとみなされます。つまり、この場合、`ResultsPropsType`内の`results`プロパティを指すのではなく、引数全体が`results`とみなされます。
+
+この違いを理解することで、JavaScriptの分割代入を使った関数の引数の扱い方について深く理解することができました。特にReactの関数コンポーネントでは、このような分割代入の表記がよく使われます。これは、propsオブジェクトから必要なプロパティを直接取り出すことで、コードがより簡潔になり、読みやすさが向上するためです。
+
