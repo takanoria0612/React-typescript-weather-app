@@ -67,9 +67,10 @@ const {country, cityName, temperature, conditionText, icon} = props.results;
         </div>
     );
 };
-```
 
-**分割代入を使用する前**:
+
+
+**分割代入した後**:
 
 ```javascript
 const Results = (props:ResultsPropsType) => {
@@ -95,5 +96,5 @@ const Results = (props:ResultsPropsType) => {
         </div>
     );
 };
-```
+
 分割代入を導入したことで、それぞれのプロパティにアクセスするためのprops.results.の記述が不要になり、コードがよりシンプルで読みやすくなりました。
