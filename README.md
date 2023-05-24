@@ -40,6 +40,15 @@ const {country, cityName, temperature, conditionText, icon} = props.results;
 
 この行では、props.resultsオブジェクトから**country**、**cityName**、**temperature**、**conditionText**、**icon**というプロパティの値を取り出し、それぞれ同名の新たな変数に代入しています。
 
+イメージとしては、以下のようなことをしています。
+```javascript
+let country = props.results.country;
+let cityName = props.results.cityName;
+let temperature = props.results.temperature;
+let conditionText = props.results.conditionText;
+let icon = props.results.icon;
+```
+
 この結果、それぞれの値に対してprops.results.をつけてアクセスする代わりに、直接変数名を使ってアクセスできるようになります。これにより、コードがシンプルで読みやすくなります。
 
 分割代入を使用する前と使用した後のコードを以下に示し、その有用性を確認しましょう:
