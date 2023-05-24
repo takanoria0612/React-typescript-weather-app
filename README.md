@@ -152,3 +152,25 @@ const Results = ({results}: ResultsPropsType) => {
 
 この違いを理解することで、JavaScriptの分割代入を使った関数の引数の扱い方について深く理解することができました。特にReactの関数コンポーネントでは、このような分割代入の表記がよく使われます。これは、propsオブジェクトから必要なプロパティを直接取り出すことで、コードがより簡潔になり、読みやすさが向上するためです。
 
+#### 追加で考えたこと
+分割代入の理解を深めるために、私は次のようなコードについて考えてみました：
+
+```javascript
+const {results} = props;
+const {country, cityName, temperature, conditionText, icon} = results;
+```
+## `{results}` を使わない理由
+
+ここで私が疑問に思ったのは、なぜ第二行で `const **{country, cityName, temperature, conditionText, icon}** = **{results}**;` と書かないのか、ということでした。
+
+この疑問を解決するために、JavaScriptのオブジェクトと分割代入の特性を詳しく調べました。結果として以下の理解に至りました：
+
+JavaScriptでは、オブジェクトは `{}` で囲まれた中にキーと値を記述することで生成されます。例えば `{results}` という表記は、**results** というキーに対応する値を持つ新しいオブジェクトを生成します。
+
+しかし、`{results}` の場合、これは **results** という名前の変数をキーとして使用するのではなく、 **results** という名前の変数の値を利用します。つまり `{results}` は **{results: results}** のショートハンド（省略形）です。そのため、`{results}` は **results** の値を持つ新しいオブジェクトを生成します。
+
+しかし、今回のケースでは、既存のオブジェクト **results** から **country, cityName, temperature, conditionText, icon** というプロパティを取り出したいという状況です。つまり `const **{country, cityName, temperature, conditionText, icon}** = **results**;` の形になります。ここで `{results}` と書くと、**results** の値自体を持つ新しいオブジェクトを作ってしまうため、それらのプロパティを取り出すことができません。
+
+これが `{results}` を使用しない理由です。分割代入の文脈では **{...}** は既存のオブジェクトから特定のプロパティを取り出すための表記であり、新しいオブジェクトを生成するための表記ではありません。
+
+
