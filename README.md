@@ -36,6 +36,7 @@ Reactコンポーネントでは、JavaScriptの特性である**分割代入**�
 
 ```javascript
 const {country, cityName, temperature, conditionText, icon} = props.results;
+```
 
 この行では、props.resultsオブジェクトからcountry、cityName、temperature、conditionText、iconというプロパティの値を取り出し、それぞれ同名の新たな変数に代入しています。
 
@@ -43,7 +44,7 @@ const {country, cityName, temperature, conditionText, icon} = props.results;
 
 分割代入を使用する前と使用した後のコードを以下に示し、その有用性を確認しましょう:
 
-**分割代入を使用する前**:
+### 分割代入する前
 
 ```javascript
  const Results = (props:ResultsPropsType) => {
@@ -95,5 +96,5 @@ const Results = (props:ResultsPropsType) => {
         </div>
     );
 };
-
-分割代入を導入したことで、それぞれのプロパティにアクセスするためのprops.results.の記述が不要になり、コードがよりシンプルで読みやすくなりました。
+```
+分割代入を導入したことで、それぞれのプロパティにアクセスするための**props.results.** の記述が不要になり、コードがよりシンプルで読みやすくなりました。
