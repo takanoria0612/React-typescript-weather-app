@@ -118,10 +118,13 @@ const Results = (props: ResultsPropsType) => {
     const {country, cityName, temperature, conditionText, icon} = results;
     // ...
 };
-このコードでは、まずpropsからresultsを取り出し、その後でresultsから各プロパティを取り出しています。
+```
+このコードでは、まず **props** から**results**を取り出し、その後で**results**から各プロパティを取り出しています。
 
 しかし、JavaScriptの分割代入を使うと、この2ステップの操作を1行で行うことができます。以下にそのコードを示します:
+
 ```javascript
+
 const Results = ({results}: ResultsPropsType) => {
     const {country, cityName, temperature, conditionText, icon} = results;
     // ...
