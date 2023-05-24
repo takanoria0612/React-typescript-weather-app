@@ -173,7 +173,11 @@ JavaScriptでは、オブジェクトは `{}` で囲まれた中にキーと値�
 
 しかし、`{results}` の場合、これは **results** という名前の変数をキーとして使用するのではなく、 **results** という名前の変数の値を利用します。つまり `{results}` は **{results: results}** のショートハンド（省略形）です。そのため、`{results}` は **results** の値を持つ新しいオブジェクトを生成します。
 
-しかし、今回のケースでは、既存のオブジェクト **results** から **country, cityName, temperature, conditionText, icon** というプロパティを取り出したいという状況です。つまり `const **{country, cityName, temperature, conditionText, icon}** = **results**;` の形になります。ここで `{results}` と書くと、**results** の値自体を持つ新しいオブジェクトを作ってしまうため、それらのプロパティを取り出すことができません。
+しかし、今回のケースでは、既存のオブジェクト **results** から **country, cityName, temperature, conditionText, icon** というプロパティを取り出したいという状況です。つまり
+```javascript
+const {country, cityName, temperature, conditionText, icon} = results;
+```
+の形になります。ここで `{results}` と書くと、**results** の値自体を持つ新しいオブジェクトを作ってしまうため、それらのプロパティを取り出すことができません。
 
 これが `{results}` を使用しない理由です。分割代入の文脈では **{...}** は既存のオブジェクトから特定のプロパティを取り出すための表記であり、新しいオブジェクトを生成するための表記ではありません。
 
