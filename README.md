@@ -70,7 +70,7 @@ const {country, cityName, temperature, conditionText, icon} = props.results;
 };
 ```
 
-## 分割代入した後:
+### 分割代入した後:
 
 ```javascript
 const Results = (props:ResultsPropsType) => {
